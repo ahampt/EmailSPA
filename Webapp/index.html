@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>EmailSPA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Quickly generate emails to send to inquirers and new members (Created for the Flying Aggies <flyingaggies.org>)." />
+	<meta name="author" content="Andy Hampton" />
+	<meta name="robots" content="index, follow" />
+	
+	<meta name="copyright" content="Andy Hampton" />
+	<meta name="language" content="English" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="static/css/std.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
+	
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- javascript -->
+	<script language="javascript" type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+<body>
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="./index.html" class="brand">EmailSPA</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="./index.html">Home</a>
+						</li>
+						<li class="">
+							<a href="./about.html">About</a>
+						</li>
+						<li class="">
+							<a href="./disclaimers.html">Disclaimers</a>
+						</li>
+						<li class="">
+							<a href="./privacy_policy.html">Privacy Policy</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="page-header">
+		<h1>Flying Aggies Membership Coordinator Email Generator</h1>
+	</div>
+	
+	<br />
+	<div id="alert"></div>
+	<form>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3">
+				<input type="checkbox" id="information"> Information
+			</label>
+			<label class="checkbox unselectable span3">
+				<input type="checkbox" id="welcome"> Welcome
+			</label>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3" id="information-introduction-label">
+				<input class="information-checkbox" type="checkbox" id="information-introduction" disabled="disabled"> Introduction
+			</label>
+			<label class="checkbox unselectable span3" id="welcome-introduction-label">
+				<input class="welcome-checkbox" type="checkbox" id="welcome-introduction" disabled="disabled"> Introduction
+			</label>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3" id="steps-label">
+				<input class="information-checkbox" type="checkbox" id="steps" disabled="disabled"> Steps to Membership
+			</label>
+			<label class="checkbox unselectable span3" id="doctor-label">
+				<input class="welcome-checkbox" type="checkbox" id="doctor" disabled="disabled"> Doctor's Contact Information
+			</label>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3" id="cost-label">
+				<input class="information-checkbox" type="checkbox" id="cost" disabled="disabled"> Cost to License
+			</label>
+			<label class="checkbox unselectable span3" id="combinations-label">
+				<input class="welcome-checkbox" type="checkbox" id="combinations" disabled="disabled"> Clubhouse Lock Combinations
+			</label>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3" id="location-label">
+				<input class="information-checkbox" type="checkbox" id="location" disabled="disabled"> Location of Clubhouse
+			</label>
+			<label class="checkbox unselectable span3" id="first-lesson-label">
+				<input class="welcome-checkbox" type="checkbox" id="first-lesson" disabled="disabled"> First Lesson Information
+			</label>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3" id="time-label">
+				<input class="information-checkbox" type="checkbox" id="time" disabled="disabled"> Time to License
+			</label>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset3" id="completed-label">
+				<input class="information-checkbox" type="checkbox" id="completed" disabled="disabled"> Have Completed Application
+			</label>
+		</div>
+		<div class="row hide" id="user-input">
+			<div class="span2 offset3">
+				<input class="input-block-level" type="text" id="first-name" placeholder="First Name" />
+			</div>
+			<div class="span2">
+				<input class="input-block-level" type="text" id="username" placeholder="Username" />
+			</div>
+			<div class="span2">
+				<input class="input-block-level" type="text" id="fms" placeholder="FMS/Password" />
+			</div>
+		</div>
+		<div class="row">
+			<label class="checkbox unselectable span3 offset5" id="edit-check-label">
+				<input type="checkbox" id="edit-check"> Edit Mode
+			</label>
+		</div>
+		<div class="row">
+			<div class="span6 offset3"><button class="btn btn-large btn-block btn-primary" style="width: inherit;" type="button" id="submit" data-loading-text="<img src='static/img/ajax-loader.gif' />">Submit</button></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="offset3">
+				<textarea rows="6" class="span6"></textarea>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="span6 offset3"><button class="btn btn-large btn-block unselectable" style="width: inherit;" type="button" id="copy" data-loading-text="<img src='static/img/ajax-loader.gif' />">Copy to Clipboard</button></div>
+		</div>
+	</form>
+
+	<hr>
+	<footer>
+		<p class="pull-left">
+			&copy; 2013 <a href="http://www.andyhampton.com" target="_blank">Andy Hampton</a>
+		</p>
+		<p class="pull-right">
+			<a href="./index.html">Home</a> | <a href="./about.html">About</a> | <a href="./disclaimers.html">Disclaimers</a> | <a href="./privacy_policy.html">Privacy Policy</a>
+		</p>
+	</footer>
+	</div> <!-- /container -->
+	<!-- javascript -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="static/js/bootstrap.min.js"></script>
+	<script language="javascript" type="text/javascript" src="static/js/ZeroClipboard.min.js"></script>
+	<script language="javascript" type="text/javascript" src="static/js/std.js"></script>
+	<script language="JavaScript">
+		clip = new ZeroClipboard($("#copy"), {
+			moviePath: "static/swf/ZeroClipboard.swf"
+		});
+
+		clip.on('noflash', function(client) {
+			$("#copy']").addClass("hide");
+			displayAlert("<strong>Error!</strong> Adobe Flash Player is required for the copy-to-clipboard functionality of this site. Please install <a href='http://get.adobe.com/flashplayer' target='_blank'>Adobe Flash Player</a> to gain this feature.", "error");
+		});
+
+		clip.on( 'complete', function(client, args) {
+			displayAlert("<strong>Success!</strong> Text copied to clipboard.", "success");
+		} );
+	</script>
+</body>
+</html>
+
