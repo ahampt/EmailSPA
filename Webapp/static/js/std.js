@@ -166,7 +166,7 @@ $("#submit").on("click", function(e) {
 				ajaxUpdate(json);
 			}
 			else {
-				if($("#edit-check").is(':checked')) delete json['information-signature'];
+				if($("#edit-check").is(':checked') && Object.keys(json).length > 2) delete json['information-signature'];
 				ajaxGet(json);
 			}
 		}
@@ -200,7 +200,7 @@ $("#submit").on("click", function(e) {
 				ajaxUpdate(json);
 			}
 			else {
-				if($("#edit-check").is(':checked')) delete json['welcome-signature'];
+				if($("#edit-check").is(':checked') && Object.keys(json).length > 2) delete json['welcome-signature'];
 				ajaxGet(json);
 			}
 		}
